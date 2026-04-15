@@ -1,0 +1,88 @@
+import React, { useEffect, useRef } from "react";
+import { Licorice, Oooh_Baby } from "next/font/google";
+import {
+  PiArrowBendRightDownThin,
+  PiArrowBendLeftDownThin,
+  PiArrowBendLeftUpThin,
+  PiArrowBendRightUpThin,
+} from "react-icons/pi";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { PiArrowBendDownRightThin } from "react-icons/pi";
+
+
+
+gsap.registerPlugin(ScrollTrigger);
+
+const ooohBaby = Oooh_Baby({
+  variable: "--font-oooh-baby",
+  subsets: ["latin"],
+  weight: "400",
+});
+
+function WhyUs() {
+  const bowlRef = useRef(null);
+
+  useEffect(() => {
+    gsap.to(bowlRef.current, {
+      rotate: 60,
+      ease: "none",
+      scrollTrigger: {
+        trigger: bowlRef.current,
+        start: "top 80%",
+        end: "bottom 20%",
+        scrub: true,
+      },
+    });
+  }, []);
+
+  return (
+    <div className="h-auto px-10 py-15">
+      <h1 className="text-7xl font-bold">Why Us?</h1>
+
+      <div className="flex w-full">
+        <div className="w-1/2 flex items-center">
+          <img
+            ref={bowlRef}
+            src="/whyus.png"
+            alt="frozenfruitbowl"
+            className="w-4/5 h-4/5 object-contain"
+          />
+        </div>
+
+        <div className="flex flex-col justify-center px-10 text-lg w-1/2 ">
+          <h2
+            className=" text-xl font-light p-4 flex gap-2"
+          >
+            <PiArrowBendDownRightThin />
+            Quick & Convenient ready in minutes, perfect for busy lifestyles
+            
+          </h2>
+          <h2
+            className=" text-xl font-light p-4 flex gap-2"
+          >
+            <PiArrowBendDownRightThin />
+            Advanced Freezing Technology Locks in nutrition and taste
+            
+          </h2>
+          <h2
+            className=" text-xl font-light p-4 flex gap-2"
+          >
+            <PiArrowBendDownRightThin />
+            Hygienic Packaging safe and secure packaging standards
+            
+          </h2>
+          <h2
+            className=" text-xl font-light p-4 flex gap-2"
+          >
+            <PiArrowBendDownRightThin />
+            Quick & Convenient ready in minutes, perfect for busy lifestyles
+            
+          </h2>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export default WhyUs;
