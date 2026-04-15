@@ -46,34 +46,34 @@ function WhyUs() {
             ref={bowlRef}
             src="/whyus.png"
             alt="frozenfruitbowl"
-            className="w-4/5 h-4/5 object-contain"
+            className="w-[90%] h-[90%] object-contain"
           />
         </div>
 
-        <div className="flex flex-col justify-center px-10 text-lg w-1/2 ">
+        <div className="flex flex-col justify-center px-10 text-lg w-1/2 bg-[#275123]/50 rounded-3xl">
           <h2
-            className=" text-xl font-light p-4 flex gap-2"
+            className="text-xl font-light p-4 flex gap-2 text-white"
           >
             <PiArrowBendDownRightThin />
             Quick & Convenient ready in minutes, perfect for busy lifestyles
             
           </h2>
           <h2
-            className=" text-xl font-light p-4 flex gap-2"
+            className="text-xl font-light p-4 flex gap-2 text-white"
           >
             <PiArrowBendDownRightThin />
             Advanced Freezing Technology Locks in nutrition and taste
             
           </h2>
           <h2
-            className=" text-xl font-light p-4 flex gap-2"
+            className="text-xl font-light p-4 flex gap-2 text-white"
           >
             <PiArrowBendDownRightThin />
             Hygienic Packaging safe and secure packaging standards
             
           </h2>
           <h2
-            className=" text-xl font-light p-4 flex gap-2"
+            className="text-xl font-light p-4 flex gap-2 text-white"
           >
             <PiArrowBendDownRightThin />
             Quick & Convenient ready in minutes, perfect for busy lifestyles

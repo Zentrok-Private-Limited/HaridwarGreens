@@ -6,11 +6,11 @@ function Contact() {
       <div className='grid grid-cols-3'>
 
         <div className='flex justify-center p-4'>
-            <h1 className='text-8xl font-bold'>Fresh answers for your <span className='text-white'>frozen needs.</span></h1>
+            <h1 className='text-7xl font-bold'>Fresh answers for your <span className='text-white'>frozen needs.</span></h1>
         </div>
 
       
-        <div className='w-full '>
+        <div className='w-full h-full'>
           <img src="/contactus.png" alt="frozen vegetable" className='w-full h-full object-contain'/>
         </div>
 

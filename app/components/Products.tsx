@@ -22,12 +22,12 @@ export default function Products() {
   const products: Product[] = [
     { heading: "Green Peas", content: "Farm-fresh peas, instantly frozen to lock in taste and nutrition.", imageUrl: "/greenpea.png" },
     { heading: "Sweet Corn", content: "Farm-fresh peas, instantly frozen to lock in taste and nutrition.", imageUrl: "/sweetcorn.png" },
-    { heading: "Mix Vegetables", content: "Farm-fresh veggies, instantly frozen to lock in taste and nutrition.", imageUrl: "/mixveg.png" },
+    { heading: "Mix Vegetables", content: "Farm-fresh veggies, instantly frozen to lock in taste and nutrition.", imageUrl: "/mixveggies.png" },
     { heading: "Veg Momos", content: "Soft and delicious frozen momos, ready in minutes.", imageUrl: "/vegmomo.png" },
     { heading: "Frozen Fruits", content: "lorem ipsum lorem ipsum lorem ipsum lorem ipsum", imageUrl: "/fruit.png" },
     { heading: "Green Peas", content: "Farm-fresh peas, instantly frozen to lock in taste and nutrition.", imageUrl: "/greenpea.png" },
     { heading: "Sweet Corn", content: "Farm-fresh peas, instantly frozen to lock in taste and nutrition.", imageUrl: "/sweetcorn.png" },
-    { heading: "Mix Vegetables", content: "Farm-fresh veggies, instantly frozen to lock in taste and nutrition.", imageUrl: "/mixveg.png" }
+    { heading: "Mix Vegetables", content: "Farm-fresh veggies, instantly frozen to lock in taste and nutrition.", imageUrl: "/mixveggies.png" }
   ];
 
   useEffect(() => {
