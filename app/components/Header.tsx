@@ -5,7 +5,7 @@ import { WiSnowflakeCold } from "react-icons/wi";
 
 function Header() {
   return (
-    <div className='fixed top-0 left-0 right-0 z-50 font-semibold text-base flex justify-between items-center px-4 py-3 bg-transparent rounded-lg'>
+    <div className='fixed top-0 left-0 right-0 z-50 font-semibold text-base flex justify-between items-center px-4 py-3 bg-[#fffcf2] rounded-lg mx-4 my-2'>
         <div>
             <p className='font-extrabold text-base'>Haridwar Greens</p>
            

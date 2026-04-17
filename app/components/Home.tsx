@@ -108,7 +108,7 @@ export default function Home() {
       <div className="grid grid-cols-[2fr_1fr]">
         
        
-        <div className="relative overflow-hidden flex justify-center items-center h-[500px]">
+        <div className="relative overflow-hidden flex justify-center items-center h-125">
           
           <div className="absolute top-18 right-50 flex flex-col items-center pl-8">
             <h3
