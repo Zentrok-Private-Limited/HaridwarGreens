@@ -37,8 +37,8 @@ function WhyUs() {
   }, []);
 
   return (
-    <div className="h-auto px-10 py-15">
-      <h1 className="text-7xl font-bold">Why Us?</h1>
+    <div className="h-auto px-10 py-20">
+      
 
       <div className="flex w-full">
         <div className="w-1/2 flex items-center">
@@ -50,35 +50,47 @@ function WhyUs() {
           />
         </div>
 
-        <div className="flex flex-col justify-center px-10 text-lg w-1/2 bg-[#275123]/50 rounded-3xl">
-          <h2
-            className="text-xl font-light p-4 flex gap-2 text-white"
+        <div className="flex flex-col justify-between p-10 my-5 text-lg w-1/2 bg-[#275123]/50 rounded-3xl">
+
+          <h1 className="text-5xl font-bold">Our <span className={`${ooohBaby.className} text-white`}>Promise</span> to You</h1>
+
+          <div>
+            <h2
+            className="text-lg font-light p-4 flex gap-2 text-white"
           >
-            <PiArrowBendDownRightThin />
+            <PiArrowBendDownRightThin className="text-black" />
             Quick & Convenient ready in minutes, perfect for busy lifestyles
             
           </h2>
           <h2
             className="text-xl font-light p-4 flex gap-2 text-white"
           >
-            <PiArrowBendDownRightThin />
+            <PiArrowBendDownRightThin className="text-black"/>
             Advanced Freezing Technology Locks in nutrition and taste
             
           </h2>
           <h2
             className="text-xl font-light p-4 flex gap-2 text-white"
           >
-            <PiArrowBendDownRightThin />
+            <PiArrowBendDownRightThin className="text-black"/>
             Hygienic Packaging safe and secure packaging standards
             
           </h2>
           <h2
             className="text-xl font-light p-4 flex gap-2 text-white"
           >
-            <PiArrowBendDownRightThin />
+            <PiArrowBendDownRightThin className="text-black"/>
             Quick & Convenient ready in minutes, perfect for busy lifestyles
             
           </h2>
+          <h2
+            className="text-xl font-light p-4 flex gap-2 text-white"
+          >
+            <PiArrowBendDownRightThin className="text-black"/>
+            Delicious & Consistent Taste every bite, every time
+            
+          </h2>
+          </div>
         </div>
       </div>
     </div>

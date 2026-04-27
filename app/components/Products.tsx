@@ -4,8 +4,15 @@ import React, { useEffect, useRef } from "react";
 import Card from "./Card";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { Licorice, Oooh_Baby } from "next/font/google";
 
 gsap.registerPlugin(ScrollTrigger);
+
+const ooohBaby = Oooh_Baby({
+  variable: "--font-oooh-baby",
+  subsets: ["latin"],
+  weight: "400",
+});
 
 
 type Product = {
@@ -62,14 +69,12 @@ export default function Products() {
 
   return (
     <div ref={containerRef} className="overflow-hidden">
-      
-      <div className="p-10">
-        <h2 className="text-6xl font-semibold mb-2">
-          Explore our Products
-        </h2>
-      </div>
 
-      <div ref={scrollRef} className="flex gap-6 px-15">
+      <div ref={scrollRef} className="flex gap-6 p-15 md:mt-15">
+        <h2 className="text-7xl font-bold tracking-tight border-r border-black/50 mr-2 pr-15">
+         GRAB YOUR NEXT 
+          <span className={`${ooohBaby.className} text-white text-8xl`}> favorite</span>
+        </h2>
         {products.map((item, index) => (
           <div className="min-w-75 min-h-full" key={index}>
             <Card

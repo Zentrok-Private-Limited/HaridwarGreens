@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono, Chivo,Licorice} from "next/font/google";
 import "./globals.css";
 import Header from "@/app/components/Header"
+import Footer from "@/app/components/Footer"
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -34,10 +35,24 @@ export default function RootLayout({
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} ${chivo.variable} h-full antialiased`}
     >
-      
-      <body className="min-h-full flex flex-col">
-        <Header/>
-        {children}
+      {/* 1. h-full on html/body ensures the page calculates height correctly 
+      */}
+      <body className="min-h-full flex flex-col bg-[#297B43]"> 
+        
+        {/* 2. WRAPPER: This container slides OVER the footer.
+               It needs 'relative', a high 'z-index', and a 'bg' color.
+        */}
+        <div className="relative z-10 bg-[#297B43] shadow-2xl">
+          <Header />
+          <main>{children}</main>
+        </div>
+
+        {/* 3. FOOTER: Sticks to the bottom and stays at z-0.
+        */}
+        <div className="sticky bottom-0 z-0">
+          <Footer />
+        </div>
+
       </body>
     </html>
   );

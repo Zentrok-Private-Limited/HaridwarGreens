@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 
 interface Testimonial {
   id: number;
@@ -9,46 +9,16 @@ interface Testimonial {
 }
 
 const testimonialsData: Testimonial[] = [
-  {
-    id: 1,
-    title: "Tastes just like fresh!",
-    text: "I was honestly surprised how fresh these strawberries tasted. Perfect for my morning smoothies!",
-    author: "Priya S.",
-  },
-  {
-    id: 2,
-    title: "Super convenient & healthy",
-    text: "No more washing and cutting fruits every day. These frozen fruits save me so much time.",
-    author: "Rohit M.",
-  },
-  {
-    id: 3,
-    title: "Perfect for smoothies 🥤",
-    text: "The mango chunks are naturally sweet and blend so well. My go-to for post-workout shakes.",
-    author: "Anjali K.",
-  },
-  {
-    id: 4,
-    title: "Quality is top-notch",
-    text: "You can tell these are premium quality fruits. No added sugar, just pure goodness.",
-    author: "Neha T.",
-  },
-  {
-    id: 5,
-    title: "Great for desserts 🍰",
-    text: "Used the frozen blueberries for baking and they turned out amazing. Highly recommend!",
-    author: "Amit R.",
-  },
-  {
-    id: 6,
-    title: "Always fresh, always ready",
-    text: "Love how I can use them anytime without worrying about spoilage. Total game changer!",
-    author: "Simran P.",
-  }
+  { id: 1, title: "Tastes just like fresh!", text: "I was honestly surprised how fresh these strawberries tasted. Perfect for my morning smoothies!", author: "Priya S." },
+  { id: 2, title: "Super convenient & healthy", text: "No more washing and cutting fruits every day. These frozen fruits save me so much time.", author: "Rohit M." },
+  { id: 3, title: "Perfect for smoothies 🥤", text: "The mango chunks are naturally sweet and blend so well. My go-to for post-workout shakes.", author: "Anjali K." },
+  { id: 4, title: "Quality is top-notch", text: "You can tell these are premium quality fruits. No added sugar, just pure goodness.", author: "Neha T." },
+  { id: 5, title: "Great for desserts 🍰", text: "Used the frozen blueberries for baking and they turned out amazing. Highly recommend!", author: "Amit R." },
+  { id: 6, title: "Always fresh, always ready", text: "Love how I can use them anytime without worrying about spoilage. Total game changer!", author: "Simran P." }
 ];
 
 const Testimonials: React.FC = () => {
-  const [currentIndex, setCurrentIndex] = useState(1); // Start with middle card active
+  const [currentIndex, setCurrentIndex] = useState(1);
 
   const nextStep = () => {
     setCurrentIndex((prev) => (prev + 1) % testimonialsData.length);
@@ -59,17 +29,19 @@ const Testimonials: React.FC = () => {
   };
 
   return (
-    <div className="relative flex flex-col items-center justify-center min-h-screen py-20 bg-[url('/testimonalFinal.png')] bg-cover bg-center bg-no-repeat overflow-hidden font-sans">
+    // Removed the excessive padding (py-20) to ensure it fits on laptop screens
+    <div className="relative flex flex-col min-h-screen pt-16 pb-8 bg-[url('/testimonalFinal.png')] bg-cover bg-center bg-no-repeat overflow-hidden font-sans">
       
+      {/* 1. TOP SECTION: Header */}
+      <h2 className="relative z-10 text-white text-5xl md:text-7xl font-black uppercase tracking-tighter text-center leading-[0.85] px-4">
+        Don't take our<br />word for it
+      </h2>
 
-      <div className="relative z-10 flex flex-col items-center w-full">
-        {/* Header */}
-        <h2 className="text-white text-5xl md:text-7xl font-black uppercase tracking-tighter text-center leading-[0.85] mb-8">
-          Don't take our<br />word for it
-        </h2>
-
+      {/* 2. BOTTOM SECTION: The magic here is `mt-auto`. It pushes this entire block to the very bottom of the screen */}
+      <div className="relative z-10 mt-auto w-full flex flex-col">
+        
         {/* Navigation Arrows */}
-        <div className="flex gap-4 mb-12">
+        <div className="flex gap-4 px-8 md:px-16 mt-25 justify-center md:justify-center">
           <button 
             onClick={prevStep}
             className="w-12 h-12 bg-white rounded-full flex items-center justify-center hover:scale-110 active:scale-95 transition-transform shadow-lg z-20"
@@ -88,9 +60,9 @@ const Testimonials: React.FC = () => {
           </button>
         </div>
 
-        {/* Animated Container */}
+        {/* Animated Container - Height slightly reduced to ensure it fits inside min-h-screen */}
         <div className="relative w-full flex justify-center items-center h-[450px]">
-          <div className="flex gap-6 items-center">
+          <div className="flex items-center">
             {testimonialsData.map((t, index) => {
               const isActive = index === currentIndex;
               
@@ -101,10 +73,11 @@ const Testimonials: React.FC = () => {
                   animate={{
                     scale: isActive ? 1 : 0.9,
                     opacity: 1,
-                    x: (index - currentIndex) * 380, // Dynamic spacing based on center
+                    x: (index - currentIndex) * 380,
+                    zIndex: isActive ? 10 : 0
                   }}
                   transition={{ type: 'spring', stiffness: 300, damping: 30 }}
-                  className={`absolute p-8 rounded-2xl min-w-[340px] max-w-[380px] h-[400px] flex flex-col shadow-2xl transition-colors duration-500
+                  className={`absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 p-8 rounded-2xl w-85 md:w-95 h-75 flex flex-col shadow-2xl transition-colors duration-500
                     ${isActive ? 'bg-white' : 'bg-white/10 backdrop-blur-md border border-white/30'}
                   `}
                 >
@@ -143,6 +116,7 @@ const Testimonials: React.FC = () => {
             })}
           </div>
         </div>
+
       </div>
     </div>
   );
