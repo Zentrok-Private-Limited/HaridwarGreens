@@ -132,7 +132,7 @@ export default function Home() {
               />
 
               {/* The text linked to the path */}
-              <text className="fill-white text-[12px] font-sans tracking-[0.25em] uppercase">
+              <text className="fill-white text-[12px] font-sans tracking-[0.24em] uppercase">
                 <textPath href="#circlePath" startOffset="0%">
                   NO ADDITIVES ♦ 100% NATURAL ♦ LOCKING FRESHNESS ♦ FROZEN ♦
                 </textPath>
