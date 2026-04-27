@@ -6,7 +6,9 @@ import { GoArrowRight } from "react-icons/go";
 
 function Header() {
   return (
+
     <div className='fixed top-0 left-0 right-0 z-50 font-semibold text-base flex items-center px-8 py-3 bg-[#E5E9AC] text-black rounded-lg mx-4 my-2'>
+
 
       {/* Left */}
       <div className='flex-1'>

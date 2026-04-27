@@ -105,7 +105,6 @@ export default function Home() {
         
         */}
       </div>
-
       <div className="grid grid-cols-[1fr_2fr_1fr] mt-10">
         <div className="flex flex-col gap-6 ">
           <div className="relative left-10 flex items-center justify-center w-50 h-50 bg-[#0a0a0a] rounded-full text-white shadow-lg">
