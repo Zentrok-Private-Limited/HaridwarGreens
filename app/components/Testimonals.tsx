@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Oooh_Baby } from "next/font/google";
 import { motion } from 'framer-motion';
 
 interface Testimonial {
@@ -7,6 +8,12 @@ interface Testimonial {
   text: string;
   author: string;
 }
+
+const ooohBaby = Oooh_Baby({
+  variable: "--font-oooh-baby",
+  subsets: ["latin"],
+  weight: "400",
+});
 
 const testimonialsData: Testimonial[] = [
   { id: 1, title: "Tastes just like fresh!", text: "I was honestly surprised how fresh these strawberries tasted. Perfect for my morning smoothies!", author: "Priya S." },
@@ -30,11 +37,11 @@ const Testimonials: React.FC = () => {
 
   return (
     // Removed the excessive padding (py-20) to ensure it fits on laptop screens
-    <div className="relative flex flex-col min-h-screen pt-16 pb-8 bg-[url('/testimonalFinal.png')] bg-cover bg-center bg-no-repeat overflow-hidden font-sans">
+    <div className="relative flex flex-col min-h-screen pt-16 pb-8 bg-[url('/testimonalFinal.png')] bg-cover bg-center bg-no-repeat overflow-hidden">
       
       {/* 1. TOP SECTION: Header */}
-      <h2 className="relative z-10 text-white text-5xl md:text-7xl font-black uppercase tracking-tighter text-center leading-[0.85] px-4">
-        Don't take our<br />word for it
+      <h2 className="relative z-10 text-white text-5xl md:text-7xl font-black text-center leading-[0.85] px-4">
+        Don't take our<br /><span className={ooohBaby.className}> word </span> for it
       </h2>
 
       {/* 2. BOTTOM SECTION: The magic here is `mt-auto`. It pushes this entire block to the very bottom of the screen */}

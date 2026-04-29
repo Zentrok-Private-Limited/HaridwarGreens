@@ -106,7 +106,7 @@ export default function Home() {
         */}
       </div>
       <div className="grid grid-cols-[1fr_2fr_1fr] mt-10">
-        <div className="flex flex-col gap-6 ">
+        <div className="flex flex-col gap-10">
           <div className="relative left-10 flex items-center justify-center w-50 h-50 bg-[#0a0a0a] rounded-full text-white shadow-lg">
             {/* The Central 'No' */}
             <span className="text-8xl font-serif font-bold tracking-tight">
@@ -140,8 +140,8 @@ export default function Home() {
             </svg>
           </div>
 
-          <div className="px-4 text-center ">
-            <p>Our frozen foods are picked at peak freshness and quickly frozen to lock in natural taste and nutrients—no additives, just pure goodness.</p>
+          <div className="pl-10 text-lg font-extralight leading-6.5 tracking-tight">
+            <p>Our frozen foods are picked at peak freshness and quickly frozen—no additives, just pure goodness.</p>
           </div>
         </div>
 
@@ -183,7 +183,7 @@ export default function Home() {
             <span className="text-black">Perfectly Preserved.</span>
           </h2>
 
-          <p className="text-lg mt-4">
+          <p className="text-lg font-extralight leading-6.5 tracking-tight mt-6">
             High-quality frozen vegetables and gourmet ready-to-eat snacks,
             designed for effortless, everyday indulgence.
           </p>

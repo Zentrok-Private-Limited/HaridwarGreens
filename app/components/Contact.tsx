@@ -5,19 +5,19 @@ import gsap from "gsap";
 function Contact() {
 
   return (
-    <div className='h-screen py-10'>
-      <div className='grid grid-cols-3'>
+    <div className='h-screen'>
+      <div className='h-full grid grid-cols-3'>
 
-        <div className='flex justify-center p-4'>
+        <div className='flex justify-center p-4 py-10'>
             <h1 className='text-7xl font-bold'>Fresh answers for your <span className='text-black'>
              <span className="relative inline-block">
-  frozen
-</span>needs.</span></h1>
+               frozen
+            </span>needs.</span></h1>
         </div>
 
       
-        <div className='w-full h-full'>
-          <img src="/contactus.png" alt="frozen vegetable" className='w-full h-full object-contain'/>
+        <div className=' relative w-full h-full'>
+          <img src="/contact1.png" alt="frozen vegetable" className='absolute bottom-0 w-full h-full object-contain'/>
         </div>
 
         <div className='flex flex-col justify-center items-start p-4'>

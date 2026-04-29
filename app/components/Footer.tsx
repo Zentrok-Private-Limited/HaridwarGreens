@@ -2,7 +2,7 @@ import React from 'react';
 
 const Footer = () => {
   return (
-    <footer className="w-full bg-[#E5E9AC] text-black p-8 md:p-16 font-sans h-[600px] flex flex-col justify-between">
+    <footer className="w-full bg-[#E5E9AC] text-black p-8 md:p-16 h-[600px] flex flex-col justify-between">
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-12">
         
         {/* Left Section: Contact Info */}
@@ -45,7 +45,7 @@ const Footer = () => {
         <div className="md:col-span-4 flex flex-col items-start md:items-end space-y-6">
           <div className="text-right flex flex-col items-end">
             <div className="flex items-center gap-2 mb-1">
-              <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
+              <span className="w-2 h-2 bg-green-700 rounded-full animate-pulse"></span>
               <span className="text-sm font-medium uppercase">Stocks are Available </span>
             </div>
             <p className="text-[#297B43] text-xs uppercase">grab yours now</p>
