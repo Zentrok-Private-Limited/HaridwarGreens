@@ -15,118 +15,78 @@ const ooohBaby = Oooh_Baby({
 
 function About() {
   const containerRef = useRef<HTMLDivElement | null>(null);
-  const fruitsRef = useRef<(HTMLImageElement | null)[]>([]);
+  const fruitsRef = useRef<HTMLImageElement[]>([]);
 
   useLayoutEffect(() => {
     const ctx = gsap.context(() => {
       const directions = [
-        { x: -80, y: -80 }, // top-left
-        { x: 300, y: -300 },  // top-right
-        { x: -300, y: 300 },  // bottom-left
-        { x: 300, y: 300 },   // bottom-right
+        { x: -120, y: -120 },
+        { x: 120, y: -120 },
+        { x: -120, y: 120 },
+        { x: 120, y: 120 },
       ];
 
       fruitsRef.current.forEach((fruit, i) => {
-        if (!fruit) return;
+        const dir = directions[i % directions.length];
 
-        // Start OUTSIDE (fixed direction)
         gsap.set(fruit, {
-          x: directions[i].x,
-          y: directions[i].y,
+          x: dir.x,
+          y: dir.y,
           opacity: 0,
           scale: 0.6,
         });
 
-        // Animate INTO corner
         gsap.to(fruit, {
           x: 0,
           y: 0,
           opacity: 1,
           scale: 1,
           duration: 1,
-          delay: i * 0.15,
+          delay: i * 0.1,
           ease: "power3.out",
           scrollTrigger: {
             trigger: containerRef.current,
             start: "top 70%",
           },
         });
-
-        // Optional floating effect
-        // gsap.to(fruit, {
-        //   y: "+=8",
-        //   repeat: -1,
-        //   yoyo: true,
-        //   duration: 2,
-        //   ease: "sine.inOut",
-        //   delay: 1,
-        // });
       });
     }, containerRef);
 
     return () => ctx.revert();
   }, []);
 
+  // 🔥 helper to collect refs safely
+  const addToRefs = (el: HTMLImageElement | null) => {
+    if (el && !fruitsRef.current.includes(el)) {
+      fruitsRef.current.push(el);
+    }
+  };
+
   return (
     <div
       ref={containerRef}
       className="relative h-screen my-16 text-black bg-[#F0EADE] overflow-hidden"
     >
-      {/* Fruits (fixed corner positions) */}
-      {/* Top Left */}
-<Image
-  ref={(el) => (fruitsRef.current[0] = el)}
-  src="/momo.png"
-  alt=""
-  width={120}
-  height={120}
-  className="absolute -top-2 -left-2"
-/>
+      {/* Fruits */}
 
-{/* Top Left */}
-<Image
-  ref={(el) => (fruitsRef.current[0] = el)}
-  src="/momo.png"
-  alt=""
-  width={120}
-  height={120}
-  className="absolute -top-2 -left-2"
-/>
+      <Image ref={addToRefs} src="/momo.png" alt="" width={120} height={120} className="absolute -top-2 -left-2" />
+      <Image ref={addToRefs} src="/pea.png" alt="" width={120} height={120} className="absolute -top-14 left-60" />
+      <Image ref={addToRefs} src="/fruit1.png" alt="" width={120} height={120} className="absolute -top-14 right-1/2" />
 
+      <Image ref={addToRefs} src="/strawberry.png" alt="" width={120} height={120} className="absolute -top-5 -right-5" />
+      <Image ref={addToRefs} src="/corn.png" alt="" width={120} height={120} className="absolute -top-8 right-60" />
 
+      <Image ref={addToRefs} src="/strawberry.png" alt="" width={120} height={120} className="absolute bottom-1/2 -left-10" />
+      <Image ref={addToRefs} src="/pea.png" alt="" width={120} height={120} className="absolute bottom-40 -left-[15px]" />
 
-{/* Top Right */}
-<Image
-  ref={(el) => (fruitsRef.current[1] = el)}
-  src="/strawberry.png"
-  alt=""
-  width={120}
-  height={120}
-  className="absolute -top-5 -right-5"
-/>
+      <Image ref={addToRefs} src="/cauliflower.png" alt="" width={120} height={120} className="absolute -bottom-3 -left-3" />
+      <Image ref={addToRefs} src="/fruit1.png" alt="" width={120} height={120} className="absolute -bottom-3 -right-3" />
 
-{/* Bottom Left */}
-<Image
-  ref={(el) => (fruitsRef.current[2] = el)}
-  src="/cauliflower.png"
-  alt=""
-  width={120}
-  height={120}
-  className="absolute -bottom-3 -left-3"
-/>
-
-{/* Bottom Right */}
-<Image
-  ref={(el) => (fruitsRef.current[3] = el)}
-  src="/fruit1.png"
-  alt=""
-  width={120}
-  height={120}
-  className="absolute -bottom-3 -right-3"
-/>
+      <Image ref={addToRefs} src="/momo.png" alt="" width={120} height={120} className="absolute bottom-1/2 -right-8" />
+      <Image ref={addToRefs} src="/corn.png" alt="" width={120} height={120} className="absolute bottom-40 -right-10" />
 
       {/* Content */}
-      <div className="flex flex-col items-center pt-15 px-10 gap-5 h-2/5">
+      <div className="flex flex-col items-center pt-20 px-20 gap-5 h-2/5">
         <h1 className="text-6xl font-bold text-[#297B43] text-center">
           Bringing Farm{" "}
           <span className={ooohBaby.className}>freshness</span> to Your Freezer
