@@ -15,7 +15,7 @@ const ooohBaby = Oooh_Baby({
 
 function About() {
   const containerRef = useRef<HTMLDivElement | null>(null);
-  const fruitsRef = useRef<HTMLImageElement[]>([]);
+  const fruitsRef = useRef<(HTMLImageElement | null)[]>([]);
 
   useLayoutEffect(() => {
     const ctx = gsap.context(() => {
@@ -27,6 +27,8 @@ function About() {
       ];
 
       fruitsRef.current.forEach((fruit, i) => {
+        if (!fruit) return;
+
         const dir = directions[i % directions.length];
 
         gsap.set(fruit, {
@@ -56,7 +58,7 @@ function About() {
   }, []);
 
   // 🔥 helper to collect refs safely
-  const addToRefs = (el: HTMLImageElement | null) => {
+  const addToRefs = (el: HTMLImageElement | null): void => {
     if (el && !fruitsRef.current.includes(el)) {
       fruitsRef.current.push(el);
     }
@@ -69,27 +71,104 @@ function About() {
     >
       {/* Fruits */}
 
-      <Image ref={addToRefs} src="/momo.png" alt="" width={120} height={120} className="absolute -top-2 -left-2" />
-      <Image ref={addToRefs} src="/pea.png" alt="" width={120} height={120} className="absolute -top-14 left-60" />
-      <Image ref={addToRefs} src="/fruit1.png" alt="" width={120} height={120} className="absolute -top-14 right-1/2" />
+      <Image
+        ref={addToRefs}
+        src="/momo.png"
+        alt=""
+        width={120}
+        height={120}
+        className="absolute -top-2 -left-2"
+      />
+      <Image
+        ref={addToRefs}
+        src="/pea.png"
+        alt=""
+        width={120}
+        height={120}
+        className="absolute -top-14 left-60"
+      />
+      <Image
+        ref={addToRefs}
+        src="/fruit1.png"
+        alt=""
+        width={120}
+        height={120}
+        className="absolute -top-14 right-1/2"
+      />
 
-      <Image ref={addToRefs} src="/strawberry.png" alt="" width={120} height={120} className="absolute -top-5 -right-5" />
-      <Image ref={addToRefs} src="/corn.png" alt="" width={120} height={120} className="absolute -top-8 right-60" />
+      <Image
+        ref={addToRefs}
+        src="/strawberry.png"
+        alt=""
+        width={120}
+        height={120}
+        className="absolute -top-5 -right-5"
+      />
+      <Image
+        ref={addToRefs}
+        src="/corn.png"
+        alt=""
+        width={120}
+        height={120}
+        className="absolute -top-8 right-60"
+      />
 
-      <Image ref={addToRefs} src="/strawberry.png" alt="" width={120} height={120} className="absolute bottom-1/2 -left-10" />
-      <Image ref={addToRefs} src="/pea.png" alt="" width={120} height={120} className="absolute bottom-40 -left-[15px]" />
+      <Image
+        ref={addToRefs}
+        src="/strawberry.png"
+        alt=""
+        width={120}
+        height={120}
+        className="absolute bottom-1/2 -left-10"
+      />
+      <Image
+        ref={addToRefs}
+        src="/pea.png"
+        alt=""
+        width={120}
+        height={120}
+        className="absolute bottom-40 -left-3.75"
+      />
 
-      <Image ref={addToRefs} src="/cauliflower.png" alt="" width={120} height={120} className="absolute -bottom-3 -left-3" />
-      <Image ref={addToRefs} src="/fruit1.png" alt="" width={120} height={120} className="absolute -bottom-3 -right-3" />
+      <Image
+        ref={addToRefs}
+        src="/cauliflower.png"
+        alt=""
+        width={120}
+        height={120}
+        className="absolute -bottom-3 -left-3"
+      />
+      <Image
+        ref={addToRefs}
+        src="/fruit1.png"
+        alt=""
+        width={120}
+        height={120}
+        className="absolute -bottom-3 -right-3"
+      />
 
-      <Image ref={addToRefs} src="/momo.png" alt="" width={120} height={120} className="absolute bottom-1/2 -right-8" />
-      <Image ref={addToRefs} src="/corn.png" alt="" width={120} height={120} className="absolute bottom-40 -right-10" />
+      <Image
+        ref={addToRefs}
+        src="/momo.png"
+        alt=""
+        width={120}
+        height={120}
+        className="absolute bottom-1/2 -right-8"
+      />
+      <Image
+        ref={addToRefs}
+        src="/corn.png"
+        alt=""
+        width={120}
+        height={120}
+        className="absolute bottom-40 -right-10"
+      />
 
       {/* Content */}
       <div className="flex flex-col items-center pt-20 px-20 gap-5 h-2/5">
         <h1 className="text-6xl font-bold text-[#297B43] text-center">
-          Bringing Farm{" "}
-          <span className={ooohBaby.className}>freshness</span> to Your Freezer
+          Bringing Farm <span className={ooohBaby.className}>freshness</span> to
+          Your Freezer
         </h1>
 
         <p className="text-lg text-center font-extralight leading-6.5 tracking-tight px-20 pt-4">
